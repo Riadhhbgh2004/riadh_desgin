@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض المشروع - Riadh Design</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="stars"></div>
+    <div class="container project-view">
+        <div class="project-details-full">
+            <img id="projectImage" src="" alt="">
+            <h1 id="projectTitle" class="section-title"></h1>
+            <p id="projectDescription"></p>
+            <a href="index.html" class="back-link">العودة للرئيسية</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const projectId = parseInt(urlParams.get('id'));
+            
+            const projectData = [
+                {
+                    id: 1,
+                    title: "تصميم منشور تسويقي لشركة المروج",
+                    description: "تصميم منشور احترافي لشكركة المروج والمثمثل في اللبن الخاص بهم",
+                    image: "projects/project1.jpg"
+                },
+                {
+                    id: 2,
+                    title: "تصميم منشور تسويقي",
+                    description: "حملة إعلانية لمنتج ريفكيس شيبس",
+                    image: "projects/project2.jpg"
+                },
+                {
+                    id: 3,
+                    title: "تصميم منشور تسويقي",
+                    description: "تصميم منشور تسويقي لأرز المفور التايع لشركة ستار واست",
+                    image: "projects/project3.jpg"
+                },
+                {
+                    id: 4,
+                    title: "تصميم سوشيال ميديا",
+                    description: "تصميم منشور تسويقي لحمص التايع لشركة ستار واست",
+                    image: "projects/project4.jpg"
+                },
+                {
+                    id: 5,
+                    title: "تصميم شعار لشركة ايسر الك",
+                    description: "التعريف بشعار ايسر الك الخاص ب تصنيع وتصليح الاعطال التي تمس الاجهزة المنزلية",
+                    image: "projects/project5.jpg"
+                },
+                {
+                    id: 6,
+                    title: "هوية بصرية متكاملة لتطبيق البديل",
+                    description: "تصميم هوية بصرية كاملة لتطبيق البديل الخاص بالتجارة والتجارة الالكترونية في مجال الملابس",
+                    image: "projects/project6.jpg"
+                }
+            ];
+            
+            const project = projectData.find(p => p.id === projectId);
+            if (project) {
+                document.getElementById('projectImage').src = project.image;
+                document.getElementById('projectTitle').textContent = project.title;
+                document.getElementById('projectDescription').textContent = project.description;
+                document.title = `${project.title} - Riadh Design`;
+            }
+        });
+    </script>
+</body>
+</html>
